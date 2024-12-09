@@ -1,0 +1,646 @@
+file 34574 1733771465                                           
+version 3
+run General-0-20241210-00:40:32-25612
+attr configname General
+attr datetime 20241210-00:40:32
+attr datetimef 20241210-004032
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Aodvscratch
+attr processid 25612
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../../../../../inet-4.5.4-src/inet4.5/images
+config network Aodvscratch
+config seed-0-mt 4
+config **.wlan[*].typename AckingWirelessInterface
+config **.wlan[*].bitrate 2Mbps
+config **.wlan[*].mac.headerLength 20B
+config **.wlan[*].radio.typename UnitDiskRadio
+config **.wlan[*].radio.transmitter.headerLength 96b
+config **.wlan[*].radio.transmitter.communicationRange 400m
+config **.wlan[*].radio.transmitter.interferenceRange 0m
+config **.wlan[*].radio.transmitter.detectionRange 0m
+config **.wlan[*].radio.receiver.ignoreInterference true
+config *.n 7
+config **.mobility.initFromDisplayString false
+config **.nodoMovil[*].mobility.typename MassMobility
+config **.nodoMovil[*].mobility.speed 1mps
+config **.mobility.constraintAreaMinZ 0m
+config **.mobility.constraintAreaMaxZ 0m
+config **.mobility.constraintAreaMinX 0m
+config **.mobility.constraintAreaMinY 0m
+config **.mobility.constraintAreaMaxX 1200m
+config **.mobility.constraintAreaMaxY 600m
+config **.nodoMovil[*].mobility.changeInterval "normal(5s, 0.1s)"
+config **.nodoMovil[*].mobility.changeAngleBy "normal(0deg, 30deg)"
+config **.nodoFijo1.mobility.initialX 0m
+config **.nodoFijo1.mobility.initialY 300m
+config **.nodoFijo2.mobility.initialX 1200m
+config **.nodoFijo2.mobility.initialY 300m
+config **.dataLinkVisualizer.displayLinks true
+config **.nodoMovil*.wlan[*].radio.displayCommunicationRange true
+config **.networkRouteVisualizer.displayRoutes true
+
+vector 0 Aodvscratch.nodoFijo1.wlan[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 1 Aodvscratch.nodoFijo1.wlan[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 2 Aodvscratch.nodoFijo1.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 3 Aodvscratch.nodoFijo1.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 4 Aodvscratch.nodoFijo1.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 5 Aodvscratch.nodoFijo2.wlan[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 6 Aodvscratch.nodoFijo2.wlan[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 7 Aodvscratch.nodoFijo2.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 8 Aodvscratch.nodoFijo2.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 9 Aodvscratch.nodoFijo2.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 10 Aodvscratch.nodoMovil[0].wlan[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 11 Aodvscratch.nodoMovil[0].wlan[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 12 Aodvscratch.nodoMovil[0].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 13 Aodvscratch.nodoMovil[0].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 14 Aodvscratch.nodoMovil[0].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 15 Aodvscratch.nodoMovil[1].wlan[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 16 Aodvscratch.nodoMovil[1].wlan[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 17 Aodvscratch.nodoMovil[1].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 18 Aodvscratch.nodoMovil[1].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 19 Aodvscratch.nodoMovil[1].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 20 Aodvscratch.nodoMovil[2].wlan[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 21 Aodvscratch.nodoMovil[2].wlan[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 22 Aodvscratch.nodoMovil[2].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 23 Aodvscratch.nodoMovil[2].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 24 Aodvscratch.nodoMovil[2].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 25 Aodvscratch.nodoMovil[3].wlan[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 26 Aodvscratch.nodoMovil[3].wlan[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 27 Aodvscratch.nodoMovil[3].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 28 Aodvscratch.nodoMovil[3].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 29 Aodvscratch.nodoMovil[3].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 30 Aodvscratch.nodoMovil[4].wlan[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 31 Aodvscratch.nodoMovil[4].wlan[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 32 Aodvscratch.nodoMovil[4].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 33 Aodvscratch.nodoMovil[4].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 34 Aodvscratch.nodoMovil[4].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 35 Aodvscratch.nodoMovil[5].wlan[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 36 Aodvscratch.nodoMovil[5].wlan[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 37 Aodvscratch.nodoMovil[5].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 38 Aodvscratch.nodoMovil[5].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 39 Aodvscratch.nodoMovil[5].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 40 Aodvscratch.nodoMovil[6].wlan[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 41 Aodvscratch.nodoMovil[6].wlan[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 42 Aodvscratch.nodoMovil[6].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 43 Aodvscratch.nodoMovil[6].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 44 Aodvscratch.nodoMovil[6].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 45 Aodvscratch.nodoFijo1.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 46 Aodvscratch.nodoFijo2.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 47 Aodvscratch.nodoMovil[0].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 48 Aodvscratch.nodoMovil[1].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 49 Aodvscratch.nodoMovil[2].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 50 Aodvscratch.nodoMovil[3].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 51 Aodvscratch.nodoMovil[4].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 52 Aodvscratch.nodoMovil[5].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 53 Aodvscratch.nodoMovil[6].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 54 Aodvscratch.nodoFijo1.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 55 Aodvscratch.nodoFijo1.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 56 Aodvscratch.nodoFijo2.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 57 Aodvscratch.nodoFijo2.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 58 Aodvscratch.nodoMovil[0].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 59 Aodvscratch.nodoMovil[0].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 60 Aodvscratch.nodoMovil[1].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 61 Aodvscratch.nodoMovil[1].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 62 Aodvscratch.nodoMovil[2].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 63 Aodvscratch.nodoMovil[2].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 64 Aodvscratch.nodoMovil[3].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 65 Aodvscratch.nodoMovil[3].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 66 Aodvscratch.nodoMovil[4].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 67 Aodvscratch.nodoMovil[4].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 68 Aodvscratch.nodoMovil[5].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 69 Aodvscratch.nodoMovil[5].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 70 Aodvscratch.nodoMovil[6].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 71 Aodvscratch.nodoMovil[6].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+0	20759 45 0 0 0 0 5 0 0 0 0
+1	20804 45 0 0 0 0 5 0 0 0 0
+2	20849 9 0 0 0 0 1 0 0 0 0
+3	20858 9 0 0 0 0 1 0 0 0 0
+4	20867 9 0 0 0 0 1 0 0 0 0
+5	20876 45 0 0 0 0 5 0 0 0 0
+6	20921 45 0 0 0 0 5 0 0 0 0
+7	20966 9 0 0 0 0 1 0 0 0 0
+8	20975 9 0 0 0 0 1 0 0 0 0
+9	20984 9 0 0 0 0 1 0 0 0 0
+10	20993 50 0 0 0 0 5 0 0 0 0
+11	21043 50 0 0 0 0 5 0 0 0 0
+12	21093 10 0 0 0 0 1 0 0 0 0
+13	21103 10 0 0 0 0 1 0 0 0 0
+14	21113 10 0 0 0 0 1 0 0 0 0
+15	21123 50 0 0 0 0 5 0 0 0 0
+16	21173 50 0 0 0 0 5 0 0 0 0
+17	21223 10 0 0 0 0 1 0 0 0 0
+18	21233 10 0 0 0 0 1 0 0 0 0
+19	21243 10 0 0 0 0 1 0 0 0 0
+20	21253 50 0 0 0 0 5 0 0 0 0
+21	21303 50 0 0 0 0 5 0 0 0 0
+22	21353 10 0 0 0 0 1 0 0 0 0
+23	21363 10 0 0 0 0 1 0 0 0 0
+24	21373 10 0 0 0 0 1 0 0 0 0
+25	21383 50 0 0 0 0 5 0 0 0 0
+26	21433 50 0 0 0 0 5 0 0 0 0
+27	21483 10 0 0 0 0 1 0 0 0 0
+28	21493 10 0 0 0 0 1 0 0 0 0
+29	21503 10 0 0 0 0 1 0 0 0 0
+30	21513 50 0 0 0 0 5 0 0 0 0
+31	21563 50 0 0 0 0 5 0 0 0 0
+32	21613 10 0 0 0 0 1 0 0 0 0
+33	21623 10 0 0 0 0 1 0 0 0 0
+34	21633 10 0 0 0 0 1 0 0 0 0
+35	21643 50 0 0 0 0 5 0 0 0 0
+36	21693 50 0 0 0 0 5 0 0 0 0
+37	21743 10 0 0 0 0 1 0 0 0 0
+38	21753 10 0 0 0 0 1 0 0 0 0
+39	21763 10 0 0 0 0 1 0 0 0 0
+40	21773 50 0 0 0 0 5 0 0 0 0
+41	21823 50 0 0 0 0 5 0 0 0 0
+42	21873 10 0 0 0 0 1 0 0 0 0
+43	21883 10 0 0 0 0 1 0 0 0 0
+44	21893 10 0 0 0 0 1 0 0 0 0
+45	21903 30 0 0 0 0 3 0 4 4 16
+46	21933 30 0 0 0 0 3 0 4 4 16
+47	21963 30 0 0 0 0 3 0 4 4 16
+48	21993 30 0 0 0 0 3 0 4 4 16
+49	22023 30 0 0 0 0 3 0 4 4 16
+50	22053 30 0 0 0 0 3 0 4 4 16
+51	22083 30 0 0 0 0 3 0 4 4 16
+52	22113 30 0 0 0 0 3 0 4 4 16
+53	22143 30 0 0 0 0 3 0 4 4 16
+54	22173 10 0 0 0 0 1 1 1 1 1
+55	22183 10 0 0 0 0 1 1 1 1 1
+56	22193 10 0 0 0 0 1 1 1 1 1
+57	22203 10 0 0 0 0 1 1 1 1 1
+58	22213 10 0 0 0 0 1 1 1 1 1
+59	22223 10 0 0 0 0 1 1 1 1 1
+60	22233 10 0 0 0 0 1 1 1 1 1
+61	22243 10 0 0 0 0 1 1 1 1 1
+62	22253 10 0 0 0 0 1 1 1 1 1
+63	22263 10 0 0 0 0 1 1 1 1 1
+64	22273 10 0 0 0 0 1 1 1 1 1
+65	22283 10 0 0 0 0 1 1 1 1 1
+66	22293 10 0 0 0 0 1 1 1 1 1
+67	22303 10 0 0 0 0 1 1 1 1 1
+68	22313 10 0 0 0 0 1 1 1 1 1
+69	22323 10 0 0 0 0 1 1 1 1 1
+70	22333 10 0 0 0 0 1 1 1 1 1
+71	22343 10 0 0 0 0 1 1 1 1 1
+vector 72 Aodvscratch.nodoFijo1.wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 73 Aodvscratch.nodoFijo1.wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 74 Aodvscratch.nodoFijo2.wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 75 Aodvscratch.nodoFijo2.wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 76 Aodvscratch.nodoMovil[0].wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 77 Aodvscratch.nodoMovil[0].wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 78 Aodvscratch.nodoMovil[1].wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 79 Aodvscratch.nodoMovil[1].wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 80 Aodvscratch.nodoMovil[2].wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 81 Aodvscratch.nodoMovil[2].wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 82 Aodvscratch.nodoMovil[3].wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 83 Aodvscratch.nodoMovil[3].wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 84 Aodvscratch.nodoMovil[4].wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 85 Aodvscratch.nodoMovil[4].wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 86 Aodvscratch.nodoMovil[5].wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 87 Aodvscratch.nodoMovil[5].wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 88 Aodvscratch.nodoMovil[6].wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 89 Aodvscratch.nodoMovil[6].wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+72	26364 456 226 226 0.1 3.3 33 0 0 0 0
+73	26820 456 226 226 0.1 3.3 33 0 0 0 0
+74	27276 456 226 226 0.1 3.3 33 0 0 0 0
+75	27732 456 226 226 0.1 3.3 33 0 0 0 0
+76	28188 456 226 226 0.1 3.3 33 0 0 0 0
+77	28644 456 226 226 0.1 3.3 33 0 0 0 0
+78	29100 456 226 226 0.1 3.3 33 0 0 0 0
+79	29556 456 226 226 0.1 3.3 33 0 0 0 0
+80	30012 456 226 226 0.1 3.3 33 0 0 0 0
+81	30468 456 226 226 0.1 3.3 33 0 0 0 0
+82	30924 456 226 226 0.1 3.3 33 0 0 0 0
+83	31380 456 226 226 0.1 3.3 33 0 0 0 0
+84	31836 456 226 226 0.1 3.3 33 0 0 0 0
+85	32292 456 226 226 0.1 3.3 33 0 0 0 0
+86	32748 456 226 226 0.1 3.3 33 0 0 0 0
+87	33204 456 226 226 0.1 3.3 33 0 0 0 0
+88	33660 456 226 226 0.1 3.3 33 0 0 0 0
+89	34116 456 226 226 0.1 3.3 33 0 0 0 0
+

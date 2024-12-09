@@ -1,0 +1,3 @@
+package aodvscratch;
+
+@license(LGPL);

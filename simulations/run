@@ -1,0 +1,4 @@
+#!/bin/sh
+cd `dirname $0`
+../src/aodvscratch -n .:../src $*
+# for shared lib, use: opp_run -l ../src/aodvscratch -n .:../src $*
